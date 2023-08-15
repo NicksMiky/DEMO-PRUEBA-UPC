@@ -62,4 +62,19 @@ public class ProductoController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+
+       [HttpPut]
+    [Route("ActualizarProducto")]
+
+    public IActionResult ActualizarProducto(Producto producto)
+    {
+        try{
+            var result = ProductoServicios.UpdateProducto(producto);
+            return Ok(result);
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
 }
