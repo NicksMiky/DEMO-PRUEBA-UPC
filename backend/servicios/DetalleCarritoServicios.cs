@@ -38,5 +38,18 @@ namespace backend.servicios
             return result;
         }
 
+        public static int UpdateDetalleCarrito(DetalleCarrito detalleCarrito)
+        {
+            const string sql = "UPDATE [dbo].[DETALLE_CARRITO] SET CANTIDAD = @cantidad, ID_PRODUCTO = @id_producto, ID_CARRITO_COMPRA=@id_carrito_compra where ID = @Id";
+            var parameters = new DynamicParameters();
+                parameters.Add("id", detalleCarrito.Id, DbType.Int64);
+                parameters.Add("cantidad", detalleCarrito.Cantidad, DbType.Int64);
+                parameters.Add("id_producto", detalleCarrito.IdProducto, DbType.Int64);
+                parameters.Add("id_carrito_compra", detalleCarrito.IdCarritoCompra, DbType.Int64);
+              
+                var result = BDManager.GetInstance.SetData(sql, parameters);
+                return result;
+        }
+
     }
 }

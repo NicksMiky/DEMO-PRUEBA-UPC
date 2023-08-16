@@ -54,6 +54,13 @@ namespace backend_unit_test
             Assert.Equal(1, result);
         }
 
+        /*[Fact]
+        public void Usuarios_eliminar()
+        {
+            int Id = 2;
+            var result = UsuariosServicios.DeleteUsuario(Id);
+            Assert.Equal(1, result);
+        }*/
 
     }
 }

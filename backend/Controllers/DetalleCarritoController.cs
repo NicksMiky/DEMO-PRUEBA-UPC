@@ -64,4 +64,19 @@ public class DetalleCarritoController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+
+    [HttpPut]
+    [Route("ActualizarDetalleCarrito")]
+
+    public IActionResult ActualizarDetalleCarrito(DetalleCarrito detalleCarrito)
+    {
+        try{
+            var result = DetalleCarritoServicios.UpdateDetalleCarrito(detalleCarrito);
+            return Ok(result);
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
 }

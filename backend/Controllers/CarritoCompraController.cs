@@ -64,4 +64,19 @@ public class CarritoCompraController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+
+    [HttpPut]
+    [Route("ActualizarCarritoCompra")]
+
+    public IActionResult ActualizarCarritoCompra(CarritoCompra carritoCompra)
+    {
+        try{
+            var result = CarritoCompraServicios.UpdateCarritoCompra(carritoCompra);
+            return Ok(result);
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
 }
